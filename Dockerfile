@@ -9,6 +9,7 @@ RUN dotnet restore
 
 COPY src/* .
 
+RUN dotnet nuget list source
 RUN dotnet publish --verbosity detailed -c Release -o /out Worker.csproj
 
 # app image
