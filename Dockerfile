@@ -9,9 +9,7 @@ RUN dotnet restore
 
 COPY src/* .
 
-RUN dotnet nuget list source
-RUN dotnet nuget disable source https://api.nuget.org/v3/index.json
-RUN dotnet publish --verbosity detailed -c Release -o /out Worker.csproj
+RUN dotnet publish -c Release -o /out Worker.csproj
 
 # app image
 FROM mcr.microsoft.com/dotnet/runtime:6.0-alpine3.17
